@@ -17,8 +17,8 @@ const COOKIE_FILE = path.join(__dirname, 'cookies.json');
 const blurImage = async (inputPath, outputPath) => {
   try {
     await sharp(inputPath)
-      .blur(15)
-      .jpeg({ quality: 80 })
+      .blur(2)           // 轻微模糊，文字轮廓可见
+      .jpeg({ quality: 30 })  // 降低清晰度，增加“噪点感”
       .toFile(outputPath);
   } catch (_) {
     console.error('图片处理失败');
